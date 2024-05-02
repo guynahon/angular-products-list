@@ -8,7 +8,6 @@ import { ProductsComponent } from './products/products.component';
   imports: [RouterOutlet, HomeComponent, ProductsComponent],
   template: `
     <app-home></app-home>
-    <app-products></app-products>
     <router-outlet />
     `,
   styleUrl: './app.component.css'

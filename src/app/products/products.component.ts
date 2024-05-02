@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -12,7 +11,7 @@ import { NgFor } from '@angular/common';
         {{p.name}}
         <button class="plus" (click)="addOne(i)">+</button>
         <button class="minus" (click)="removeOne(i)">-</button>
-        <div>Total: {{p.total}}</div>
+        <div>Quantity: {{p.total}}</div>
         <div>Total Price: {{p.productTotalPrice}}$</div>
       </li>
     </ul>
@@ -21,16 +20,20 @@ import { NgFor } from '@angular/common';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
-  products = [
-    {name: 'tomato', total: 0, price: 2, productTotalPrice: 0},
-    {name: 'cucumber', total: 0, price: 1, productTotalPrice: 0},
-    {name: 'onion', total: 0, price: 1, productTotalPrice: 0},
-    {name: 'apple', total: 0, price: 3, productTotalPrice: 0},
-    {name: 'banana', total: 0, price: 4, productTotalPrice: 0}
-  ];
 
-  totalPrice = 0;
+  products: any[];
+  totalPrice: number;
 
+  constructor() {
+    this.products = [
+      {name: 'tomato🍅', total: 0, price: 2, productTotalPrice: 0},
+      {name: 'cucumber🥒', total: 0, price: 1, productTotalPrice: 0},
+      {name: 'onion🧅', total: 0, price: 1, productTotalPrice: 0},
+      {name: 'apple🍏', total: 0, price: 3, productTotalPrice: 0},
+      {name: 'banana🍌', total: 0, price: 4, productTotalPrice: 0}
+    ];
+    this.totalPrice = 0;
+  }
 
   addOne(index: number) {
     this.products[index].total++;
