@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProductStore } from '../store/product.store';
 
 @Component({
@@ -11,5 +11,8 @@ import { ProductStore } from '../store/product.store';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  constructor(public productStore: ProductStore) {}
+  constructor(public productStore: ProductStore) {
+    console.log('FooterComponent instance: ', productStore);
+  }
+  // productStore: ProductStore = inject(ProductStore);
 }

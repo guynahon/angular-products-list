@@ -15,5 +15,5 @@ import { TotalComponent } from '../total/total.component';
   styleUrl: './shopping-list.component.css'
 })
 export class ShoppingListComponent {
-
+  
 }

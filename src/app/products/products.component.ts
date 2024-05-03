@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { NgFor } from '@angular/common';
 import { AddRemoveButtonComponent } from '../add-remove-button/add-remove-button.component';
 import { ProductStore } from '../store/product.store';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-products',
@@ -24,5 +25,8 @@ import { ProductStore } from '../store/product.store';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
-  constructor(public productStore: ProductStore) {}
+  constructor(public productStore: ProductStore) {
+    console.log(productStore);
+  }
+  // productStore: ProductStore = inject(ProductStore);
 }
