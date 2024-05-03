@@ -1,0 +1,10 @@
+.total {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.single-product{
+    display: flex;
+    padding-top: 1.5px;
+    padding-bottom: 1.5px;
+}

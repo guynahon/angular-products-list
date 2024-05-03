@@ -1,51 +1,28 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { AddRemoveButtonComponent } from '../add-remove-button/add-remove-button.component';
+import { ProductStore } from '../store/product.store';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, AddRemoveButtonComponent],
   template: `
-    <ul *ngFor="let p of products; index as i;">
-      <li class="product">
-        {{p.name}}
-        <button class="plus" (click)="addOne(i)">+</button>
-        <button class="minus" (click)="removeOne(i)">-</button>
-        <div>Quantity: {{p.total}}</div>
-        <div>Total Price: {{p.productTotalPrice}}$</div>
+    <ul>
+      <li class="single-product" *ngFor="let p of productStore.products; index as i;">
+        <div class="product-info">
+          <span class="product-name">{{ p.name }}</span>
+          <div class="two-buttons">
+            <app-add-remove-button [sign]="'+'" [func]="productStore.addOne.bind(productStore)" [index]="i"></app-add-remove-button>
+            <app-add-remove-button [sign]="'-'" [func]="productStore.removeOne.bind(productStore)" [index]="i"></app-add-remove-button>
+          </div>
+          <div class="product-quantity">{{p.total}}</div>
+        </div>
       </li>
     </ul>
-    <h1>Total Price: {{totalPrice}}$</h1>
   `,
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
-
-  products: any[];
-  totalPrice: number;
-
-  constructor() {
-    this.products = [
-      {name: 'tomato🍅', total: 0, price: 2, productTotalPrice: 0},
-      {name: 'cucumber🥒', total: 0, price: 1, productTotalPrice: 0},
-      {name: 'onion🧅', total: 0, price: 1, productTotalPrice: 0},
-      {name: 'apple🍏', total: 0, price: 3, productTotalPrice: 0},
-      {name: 'banana🍌', total: 0, price: 4, productTotalPrice: 0}
-    ];
-    this.totalPrice = 0;
-  }
-
-  addOne(index: number) {
-    this.products[index].total++;
-    this.products[index].productTotalPrice += this.products[index].price;
-    this.totalPrice += this.products[index].price;
-  }
-
-  removeOne(index: number) {
-    if (this.products[index].total > 0) {
-      this.products[index].total--;
-      this.products[index].productTotalPrice -= this.products[index].price;
-      this.totalPrice -= this.products[index].price;
-    }
-  }
+  constructor(public productStore: ProductStore) {}
 }

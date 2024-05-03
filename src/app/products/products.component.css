@@ -1,0 +1,29 @@
+.two-buttons{
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.single-product {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+  
+.product-info {
+    flex-grow: 1;
+    display: flex;
+}
+
+.product-name {
+    flex-grow: 1;
+}
+
+.product-quantity {
+    width: 40px;
+    text-align: right;
+}
+
+  

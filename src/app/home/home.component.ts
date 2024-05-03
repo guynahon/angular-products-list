@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <header>
-      <h1>Welcome to Products List !</h1>
+    <a href="/">home</a>
+    <br>
+    <a href="/main">main</a>
+      <h1 class="header">Welcome to Products List !</h1>
     </header>`,
   styleUrl: './home.component.css'
 })
