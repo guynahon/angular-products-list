@@ -15,6 +15,7 @@
 .product-info {
     flex-grow: 1;
     display: flex;
+    gap: 30px;
 }
 
 .product-name {
@@ -24,6 +25,15 @@
 .product-quantity {
     width: 40px;
     text-align: right;
+}
+
+.product-total-price {
+    width: 40px;
+    text-align: right;
+}
+
+ul{
+    padding: 0;
 }
 
   

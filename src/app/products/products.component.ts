@@ -1,8 +1,7 @@
-import { Component, inject} from '@angular/core';
+import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { AddRemoveButtonComponent } from '../add-remove-button/add-remove-button.component';
 import { ProductStore } from '../store/product.store';
-import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-products',
@@ -14,10 +13,11 @@ import { FooterComponent } from '../footer/footer.component';
         <div class="product-info">
           <span class="product-name">{{ p.name }}</span>
           <div class="two-buttons">
-            <app-add-remove-button [sign]="'+'" [func]="productStore.addOne.bind(productStore)" [index]="i"></app-add-remove-button>
-            <app-add-remove-button [sign]="'-'" [func]="productStore.removeOne.bind(productStore)" [index]="i"></app-add-remove-button>
+            <app-add-remove-button [sign]="'+'" [func]="onAdd.bind(this)" [index]="i"></app-add-remove-button>
+            <app-add-remove-button [sign]="'-'" [func]="onRemove.bind(this)" [index]="i"></app-add-remove-button>
           </div>
           <div class="product-quantity">{{p.total}}</div>
+          <div class="product-total-price">{{p.productTotalPrice}}$</div>
         </div>
       </li>
     </ul>
@@ -25,8 +25,14 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
-  constructor(public productStore: ProductStore) {
-    console.log(productStore);
+  constructor(public productStore: ProductStore) {}
+
+  onAdd(index: number) {
+    this.productStore.addOne(index);
   }
-  // productStore: ProductStore = inject(ProductStore);
+
+  onRemove(index: number) {
+    this.productStore.removeOne(index);
+  }
 }
+

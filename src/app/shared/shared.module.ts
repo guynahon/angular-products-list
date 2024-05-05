@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductStore } from '../store/product.store';
-
-
-
+import { MobxAngularModule } from 'mobx-angular';
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    MobxAngularModule
   ],
-  providers: [ProductStore]
+  exports: [MobxAngularModule]
 })
 export class SharedModule { }

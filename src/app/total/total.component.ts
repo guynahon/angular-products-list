@@ -7,13 +7,9 @@ import { NgFor } from '@angular/common';
   standalone: true,
   imports: [NgFor],
   template: `
-    <ul class="total">
-      <li class="single-product" *ngFor="let p of productStore.products; index as i;">
-        <div>{{p.productTotalPrice}}$</div>
-      </li>
-    </ul>
+    <h2 class="footer">Total Price: {{productStore.totalPrice}}$</h2>
     `,
-  styleUrl: './total.component.css'
+  styleUrl: './total.component.css',
 })
 export class TotalComponent {
   constructor(public productStore: ProductStore){}

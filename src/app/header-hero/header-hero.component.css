@@ -1,6 +1,4 @@
-nav {
+.header {
     display: flex;
-    gap: 30px;
     justify-content: center;
-    font-size: large;
 }

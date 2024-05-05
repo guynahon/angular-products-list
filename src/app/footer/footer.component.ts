@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductStore } from '../store/product.store';
 
 @Component({
@@ -6,13 +6,12 @@ import { ProductStore } from '../store/product.store';
   standalone: true,
   imports: [],
   template: `
-    <h1 class="footer">Total Price: {{productStore.totalPrice()}}$</h1>
+    <div>
+      <h1 class="footer">Total Amount of Pruducts: {{productStore.totalProducts}}</h1>
+    </div>
   `,
-  styleUrl: './footer.component.css'
+  styleUrl: './footer.component.css',
 })
 export class FooterComponent {
-  constructor(public productStore: ProductStore) {
-    console.log('FooterComponent instance: ', productStore);
-  }
-  // productStore: ProductStore = inject(ProductStore);
+  constructor(public productStore: ProductStore) {}
 }
