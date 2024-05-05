@@ -6,7 +6,7 @@ import { ButtonModule } from 'primeng/button';
   standalone: true,
   imports: [ButtonModule],
   template: `
-    <button size="small" [style]="buttonStyle" (click)="onClick()">{{sign}}</button>
+    <p-button size="small" [style]="buttonStyle" (click)="onClick()">{{sign}}</p-button>
   `,
   styleUrl: './add-remove-button.component.css'
 })
