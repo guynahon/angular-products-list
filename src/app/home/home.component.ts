@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { Output } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HeaderHeroComponent } from '../header-hero/header-hero.component';
 import { RoutesObj } from '../types/types';
 
@@ -20,8 +19,10 @@ import { RoutesObj } from '../types/types';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  constructor(private router: Router) {}
+
   getUrl() {
-    const url = window.location.href;
+    const url = this.router.url;
     const index: number = url.lastIndexOf("/")+1
     const value: string = url.slice(index);
     const routesObj: RoutesObj = {

@@ -10,7 +10,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [NgFor, AddRemoveButtonComponent, SharedModule],
   template: `
   <ng-container *mobxAutorun>
-    <ul>
+    <ul class="list">
       <li class="single-product" *ngFor="let p of productStore.products; index as i;">
         <div class="product-info">
           <span class="product-name">{{ p.name }}</span>

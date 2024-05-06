@@ -20,5 +20,5 @@ import { SharedModule } from './shared/shared.module';
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'homes';
+
 }

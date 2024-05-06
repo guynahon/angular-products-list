@@ -32,8 +32,10 @@
     text-align: right;
 }
 
-ul{
+.list{
     padding: 0;
+    padding-right: 10px;
+    border-right: 2px solid rgb(163, 163, 163);
 }
 
   
