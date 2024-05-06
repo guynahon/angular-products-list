@@ -9,7 +9,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [ButtonModule, SharedModule],
   template: `
     <ng-container *mobxAutorun>
-      <p-button size="small" [style]="buttonStyle" (click)="callParentAdd()" (click)="callParentRemove()" [disabled]="isDisabled()">{{sign}}</p-button>
+      <p-button icon="pi pi-check" size="small" [style]="buttonStyle" (click)="callParentAdd()" (click)="callParentRemove()" [disabled]="isDisabled()">{{sign}}</p-button>
     </ng-container>
   `,
   styleUrl: './add-remove-button.component.css',
