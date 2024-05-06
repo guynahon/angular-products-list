@@ -15,8 +15,8 @@ import { SharedModule } from '../shared/shared.module';
         <div class="product-info">
           <span class="product-name">{{ p.name }}</span>
           <div class="two-buttons">
-            <app-add-remove-button [sign]="'+'" [func]="onAdd.bind(this)" [index]="i"></app-add-remove-button>
-            <app-add-remove-button [sign]="'-'" [func]="onRemove.bind(this)" [index]="i"></app-add-remove-button>
+            <app-add-remove-button (addEvent)="onAdd(i)" [sign]="'+'" [index]="i"></app-add-remove-button>
+            <app-add-remove-button (removeEvent)="onRemove(i)" [sign]="'-' "[index]="i"></app-add-remove-button>
           </div>
           <div class="product-quantity">{{p.total}}</div>
           <div class="product-total-price">{{p.productTotalPrice}}$</div>
