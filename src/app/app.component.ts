@@ -8,16 +8,16 @@ import { SharedModule } from './shared/shared.module';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, ProductsComponent, FooterComponent, SharedModule],
+  imports: [RouterOutlet, HomeComponent, ProductsComponent, FooterComponent],
   template: `
-    <ng-container *mobxAutorun>
+    <ng-container>
       <app-home></app-home>
       <router-outlet />
       <app-footer></app-footer>
     </ng-container>
     `,
   styleUrl: './app.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   title = 'homes';

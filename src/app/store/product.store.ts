@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { makeObservable } from "mobx";
 import { observable, action, computed } from "mobx-angular";
 
 @Injectable({
@@ -12,6 +13,10 @@ export class ProductStore {
         { name: 'apple🍏', total: 0, price: 3, productTotalPrice: 0 },
         { name: 'banana🍌', total: 0, price: 4, productTotalPrice: 0 }
     ];
+
+    constructor() {
+        makeObservable(this)
+    }
 
     @action addOne(index: number) {
         console.log("addOne");

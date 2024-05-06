@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { AddRemoveButtonComponent } from '../add-remove-button/add-remove-button.component';
 import { ProductStore } from '../store/product.store';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [NgFor, AddRemoveButtonComponent],
+  imports: [NgFor, AddRemoveButtonComponent, SharedModule],
   template: `
+  <ng-container *mobxAutorun>
     <ul>
       <li class="single-product" *ngFor="let p of productStore.products; index as i;">
         <div class="product-info">
@@ -21,8 +23,11 @@ import { ProductStore } from '../store/product.store';
         </div>
       </li>
     </ul>
+    </ng-container>
   `,
-  styleUrl: './products.component.css'
+  styleUrl: './products.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class ProductsComponent {
   constructor(public productStore: ProductStore) {}
